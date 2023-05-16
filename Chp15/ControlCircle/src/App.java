@@ -3,6 +3,8 @@ import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.MouseButton;
 import javafx.geometry.Pos;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -25,8 +27,8 @@ public class App extends Application{
         Button btShrink = new Button("Shrink");
         hbox.getChildren().addAll(btEnlarge,btShrink);
 
-        btEnlarge.setOnAction(new EnlargeCircle());
-        btShrink.setOnAction(new ShrinkCircle());
+        btEnlarge.setOnAction(e -> circlePane.enlarge());
+        btShrink.setOnAction(e -> circlePane.shrink());
 
         BorderPane borderPane = new BorderPane();
         borderPane.setCenter(circlePane);
@@ -38,20 +40,24 @@ public class App extends Application{
         primaryStage.setScene(scene);
         primaryStage.show();
 
-    }
+        circlePane.setOnMouseClicked(e -> {
+            if(e.getButton() == MouseButton.PRIMARY)
+                  circlePane.enlarge();
+            else if(e.getButton() == MouseButton.SECONDARY)
+                  circlePane.shrink();
+        });
 
-    class EnlargeCircle implements EventHandler<ActionEvent>{
-        @Override
-        public void handle(ActionEvent e){
-               circlePane.enlarge();
-        }
-    }
+        circlePane.setOnKeyPressed(e -> {
+            if(e.getCode() == KeyCode.UP)
+            {
+                circlePane.enlarge();
+            }
+            else if(e.getCode() == KeyCode.DOWN)
+            {
+                circlePane.shrink();
+            }
+        });
 
-    class ShrinkCircle implements EventHandler<ActionEvent>{
-        @Override
-        public void handle(ActionEvent e){
-            circlePane.shrink();
-        }
     }
 
     public static void main(String[] args) {
