@@ -50,14 +50,13 @@ public class App extends Application{
         circlePane.setOnKeyPressed(e -> {
             if(e.getCode() == KeyCode.UP)
             {
-                circlePane.enlarge();
+              circlePane.enlarge();
             }
             else if(e.getCode() == KeyCode.DOWN)
             {
-                circlePane.shrink();
+              circlePane.shrink();
             }
         });
-
     }
 
     public static void main(String[] args) {
