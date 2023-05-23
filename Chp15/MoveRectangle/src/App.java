@@ -1,20 +1,14 @@
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import javafx.animation.Animation;
-import javafx.animation.KeyFrame;
 import javafx.animation.PathTransition;
-import javafx.animation.Timeline;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.event.*;
 
 public class App extends Application{
 
