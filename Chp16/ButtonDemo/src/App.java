@@ -3,8 +3,12 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 //import javafx.scene.control.ContentDisplay;
 import javafx.scene.text.Text;
 import javafx.scene.text.Font;
@@ -14,6 +18,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Label;;
 
 public class App extends Application {
 
@@ -69,11 +74,59 @@ public class App extends Application {
             }
         };
 
+        //Add radio buttons to change text color
+        VBox paneForRadioButtons = new VBox(20);
+        paneForRadioButtons.setPadding(new Insets(5,5,5,5));
+        paneForRadioButtons.setStyle("-fx-border-width:2px; -fx-border-color:green");
+
+        RadioButton rbRed = new RadioButton("Red");
+        RadioButton rbGreen = new RadioButton("Green");
+        RadioButton rbBlue = new RadioButton("Blue");
+        paneForRadioButtons.getChildren().addAll(rbRed,rbBlue,rbGreen);
+        pane.setLeft(paneForRadioButtons);
+
+        ToggleGroup group = new ToggleGroup();
+        rbRed.setToggleGroup(group);
+        rbBlue.setToggleGroup(group);
+        rbGreen.setToggleGroup(group);
+
+        //Add a text field to change text
+        BorderPane paneForTextField = new BorderPane();
+        paneForTextField.setPadding(new Insets(5,5,5,5));
+        paneForTextField.setStyle("-fx-border-color:green");
+        paneForTextField.setLeft(new Label("Enter a new message: "));
+
+        TextField tf = new TextField();
+        tf.setAlignment(Pos.BOTTOM_RIGHT);
+        paneForTextField.setCenter(tf);
+        pane.setTop(paneForTextField);
+
+        //Handle events
         chkBold.setOnAction(handler);
         chkItalic.setOnAction(handler);
 
         btLeft.setOnAction(e -> text.setX(text.getX() - 10));
         btRight.setOnAction(e -> text.setX(text.getX() + 10));
+
+        rbRed.setOnAction(e -> {
+            if(rbRed.isSelected()){
+                text.setFill(Color.RED);
+            }
+        });
+
+        rbBlue.setOnAction(e -> {
+            if(rbBlue.isSelected()){
+                text.setFill(Color.BLUE);
+            }
+        });
+
+        rbGreen.setOnAction(e -> {
+            if(rbGreen.isSelected()){
+                text.setFill(Color.GREEN);
+            }
+        });
+
+        tf.setOnAction(e -> text.setText(tf.getText()));
 
         return pane;
     }
