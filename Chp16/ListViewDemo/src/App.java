@@ -1,5 +1,6 @@
 import javafx.application.Application;
 import javafx.collections.FXCollections;
+import javafx.geometry.Orientation;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
@@ -34,6 +35,7 @@ public class App extends Application {
         (FXCollections.observableArrayList(flagTitles));
     lv.setPrefSize(400, 400);
     lv.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+    //lv.setOrientation(Orientation.HORIZONTAL);
 
     FlowPane imagePane = new FlowPane(10,10);
     BorderPane pane = new BorderPane();
