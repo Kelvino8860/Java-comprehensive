@@ -16,15 +16,15 @@ import javafx.scene.media.MediaView;
 import javafx.util.Duration;
 
 public class App extends Application {
-   // private static final String MEDIA_URL = "http://liveexample.pearsoncmg.com/common/sample.mp4";
+    private static final String MEDIA_URL = "http://liveexample.pearsoncmg.com/common/sample.mp4";
 
-    File path = new File("src/media/sample.mp4");
+   // File path = new File("src/media/sample.mp4");
 
     @Override // Override the start method in the Application class
     public void start(Stage primaryStage) {
             
-            Media media = new Media(path.toURI().toString());
-           // Media media = new Media(MEDIA_URL);
+            //Media media = new Media(path.toURI().toString());
+            Media media = new Media(MEDIA_URL);
             MediaPlayer mediaPlayer = new MediaPlayer(media);
             MediaView mediaView = new MediaView(mediaPlayer);
 
@@ -64,5 +64,9 @@ public class App extends Application {
             primaryStage.setTitle("MediaDemo"); // Set the stage title
             primaryStage.setScene(scene); // Place the scene in the stage
             primaryStage.show(); // Display the stage
+    }
+
+    public static void main(String[] args) {
+        launch(args);
     }
 }
