@@ -1,3 +1,10 @@
+/**
+ * (Use radio buttons) Write a GUI program as shown in Figure 16.36a. You can
+ * use buttons to move the message to the left and right and use the radio buttons to
+ * change the color for the message displayed.
+ */
+
+
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
