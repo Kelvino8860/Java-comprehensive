@@ -5,7 +5,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class App extends Application {
@@ -57,7 +56,6 @@ public class App extends Application {
 
         public void convertString(String value){
             this.value = Double.parseDouble(value);
-            System.out.println(value);
         }
         public String getCelcius()
         {
