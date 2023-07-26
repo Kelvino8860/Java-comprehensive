@@ -27,7 +27,9 @@ public class App extends Application {
 
         //TextFields
         TextField tfDecimal = new TextField();
+        tfDecimal.setAlignment(Pos.TOP_RIGHT);
         TextField tfHex = new TextField();
+        tfHex.setAlignment(Pos.TOP_RIGHT);
         TextField tfBinary = new TextField();
 
         pane.add(lblDecimal, 0, 0);
